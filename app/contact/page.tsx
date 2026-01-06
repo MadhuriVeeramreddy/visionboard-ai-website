@@ -13,7 +13,7 @@ export default function ContactPage() {
           Get in Touch
         </h1>
         <p className="text-lg text-vision-navy/70 mb-12 font-text">
-          We'd love to hear from you. Share your feedback, questions, or suggestions.
+          We&apos;d love to hear from you. Share your feedback, questions, or suggestions.
         </p>
         
         <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-lg border border-vision-mint/20">
