@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Upload, Sparkles, TrendingUp } from 'lucide-react'
+import Image from 'next/image'
 
 const steps = [
   {
@@ -43,42 +44,68 @@ export default function HowItWorksSection() {
             Three simple steps to transform your vision into actionable goals
           </p>
         </motion.div>
-        
-        {/* Steps Grid */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {steps.map((step, index) => {
-            const Icon = step.icon
-            return (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative"
-              >
-                <div className="bg-gradient-to-br from-vision-mint/20 via-vision-blue/20 to-vision-pink/20 rounded-3xl p-8 h-full border border-vision-mint/30 hover:shadow-xl transition-all duration-300">
-                  {/* Step Number */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-vision-navy text-white rounded-2xl flex items-center justify-center font-display font-bold text-xl mr-4">
-                      {step.number}
+
+        {/* Content Grid with Mockup */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          {/* Left: Steps */}
+          <div className="space-y-6">
+            {steps.map((step, index) => {
+              const Icon = step.icon
+              return (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="relative"
+                >
+                  <div className="bg-gradient-to-br from-vision-mint/20 via-vision-blue/20 to-vision-pink/20 rounded-2xl p-6 border border-vision-mint/30 hover:shadow-lg transition-all duration-300">
+                    {/* Step Number */}
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-10 bg-vision-navy text-white rounded-xl flex items-center justify-center font-display font-bold text-lg mr-3">
+                        {step.number}
+                      </div>
+                      <div className="w-10 h-10 bg-vision-navy/10 rounded-xl flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-vision-navy" />
+                      </div>
                     </div>
-                    <div className="w-12 h-12 bg-vision-navy/10 rounded-2xl flex items-center justify-center">
-                      <Icon className="h-6 w-6 text-vision-navy" />
-                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl font-display font-bold text-vision-dark mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-vision-navy/70 font-text leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-2xl font-display font-bold text-vision-dark mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-vision-navy/70 font-text leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            )
-          })}
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Right: App Mockup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative w-72 sm:w-80 lg:w-96">
+              <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/assests/MockUps/1.png"
+                  alt="VisionBoard AI - Upload Your Vision"
+                  fill
+                  className="object-contain bg-white"
+                />
+              </div>
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-vision-blue/30 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-vision-mint/30 rounded-full blur-xl" />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

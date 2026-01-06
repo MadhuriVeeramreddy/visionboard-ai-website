@@ -3,15 +3,16 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, Smartphone } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 pb-16 sm:pb-20">
+    <section className="relative flex items-center justify-center overflow-hidden pt-24 sm:pt-28 pb-12 sm:pb-16 min-h-[85vh]">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-vision-mint via-vision-blue via-vision-pink via-vision-purple to-vision-orange to-vision-yellow" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Text Content */}
           <motion.div
@@ -73,18 +74,23 @@ export default function HeroSection() {
             className="flex justify-center lg:justify-end"
           >
             <div className="relative">
-              {/* Phone Frame */}
-              <div className="relative w-64 sm:w-80 lg:w-96 aspect-[9/19.5] bg-vision-dark rounded-[3rem] p-3 shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-br from-vision-mint via-vision-blue to-vision-pink rounded-[2.5rem] overflow-hidden flex items-center justify-center">
-                  {/* App Preview Placeholder */}
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 bg-white/20 rounded-3xl mx-auto mb-6 flex items-center justify-center backdrop-blur-sm">
-                      <Smartphone className="h-12 w-12 text-white" />
-                    </div>
-                    <p className="text-white/90 font-text text-sm">VisionBoard AI</p>
-                  </div>
+              {/* Main Phone Mockup */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative w-72 sm:w-80 lg:w-96"
+              >
+                <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/assests/MockUps/2.png"
+                    alt="VisionBoard AI App"
+                    fill
+                    className="object-contain bg-white"
+                    priority
+                  />
                 </div>
-              </div>
+              </motion.div>
               
               {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-vision-yellow/30 rounded-full blur-2xl" />

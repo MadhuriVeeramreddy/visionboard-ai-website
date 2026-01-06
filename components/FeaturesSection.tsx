@@ -8,6 +8,7 @@ import {
   Heart, 
   Target 
 } from 'lucide-react'
+import Image from 'next/image'
 
 const features = [
   {
@@ -56,32 +57,62 @@ export default function FeaturesSection() {
             Powerful features designed to help you turn your dreams into reality
           </p>
         </motion.div>
-        
-        {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-vision-mint/20"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-vision-mint to-vision-blue rounded-2xl flex items-center justify-center mb-4">
-                  <Icon className="h-7 w-7 text-vision-navy" />
-                </div>
-                <h3 className="text-xl font-display font-bold text-vision-dark mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-vision-navy/70 font-text leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            )
-          })}
+
+        {/* Content Grid with Mockup */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+          {/* Left: App Mockup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center lg:justify-start order-2 lg:order-1"
+          >
+            <div className="relative w-72 sm:w-80 lg:w-96">
+              <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/assests/MockUps/3.png"
+                  alt="VisionBoard AI - Track Your Progress"
+                  fill
+                  className="object-contain bg-white"
+                />
+              </div>
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -left-4 w-20 h-20 bg-vision-pink/30 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-vision-purple/30 rounded-full blur-xl" />
+            </div>
+          </motion.div>
+
+          {/* Right: Features Grid */}
+          <div className="grid gap-6 order-1 lg:order-2">
+            {features.map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-vision-mint/20"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-vision-mint to-vision-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Icon className="h-6 w-6 text-vision-navy" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-display font-bold text-vision-dark mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-vision-navy/70 font-text leading-relaxed text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
