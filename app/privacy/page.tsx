@@ -58,7 +58,7 @@ export default function PrivacyPage() {
               Contact Us
             </h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us through the app's feedback feature or visit our contact page.
+              If you have any questions about this Privacy Policy, please contact us through the app&apos;s feedback feature or visit our contact page.
             </p>
           </section>
         </div>

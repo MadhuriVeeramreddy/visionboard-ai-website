@@ -32,7 +32,7 @@ export default function AffirmationSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-vision-dark mb-6 leading-tight"
             >
-              "You are building the life you once imagined."
+              &quot;You are building the life you once imagined.&quot;
             </motion.blockquote>
             
             <motion.p

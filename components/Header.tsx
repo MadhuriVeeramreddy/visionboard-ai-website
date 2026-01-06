@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,9 +40,11 @@ export default function Header() {
             className="flex items-center space-x-3 group"
           >
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group-hover:scale-105 transition-transform">
-              <img
+              <Image
                 src="/assests/logo-3.png"
                 alt="VisionBoard AI Logo"
+                width={48}
+                height={48}
                 className="w-full h-full object-contain"
               />
             </div>

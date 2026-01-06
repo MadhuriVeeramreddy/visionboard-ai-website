@@ -38,7 +38,7 @@ export default function FeedbackPage() {
             
             <div className="pt-8 border-t border-vision-mint/20">
               <h3 className="text-xl font-display font-bold text-vision-dark mb-3">
-                What We'd Love to Hear
+                What We&apos;d Love to Hear
               </h3>
               <ul className="space-y-2 text-vision-navy/70 font-text">
                 <li>• Feature suggestions</li>

@@ -49,7 +49,7 @@ export default function TermsPage() {
               Limitation of Liability
             </h2>
             <p className="mb-4">
-              VisionBoard AI is provided "as is" without warranties of any kind. We are not responsible for any outcomes resulting from the use of the app or AI-generated content.
+              VisionBoard AI is provided &quot;as is&quot; without warranties of any kind. We are not responsible for any outcomes resulting from the use of the app or AI-generated content.
             </p>
           </section>
           
